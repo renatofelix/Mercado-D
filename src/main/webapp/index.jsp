@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Calculo IMC-JSP</title>
+    <title>Poupe-Dinheiro</title>
 
     <!-- Bootstrap -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -30,102 +30,34 @@
 
 <body>
  
-  <h1>Cálculo de IMC</h1>
-    <div class="col-md-12">
-		<div class="modal-dialog" style="margin-bottom:0">
-			<div class="modal-content">
-				<div class="panel-heading text-center">
-					<h3 class="panel-title">Cálculo IMC - JSP</h3>
-				</div>
-				<div class="panel-body">
-					<form name="formulario">
-						<fieldset>
-							<div class="form-group">
-							  <label for="altura">Altura:</label>
-							  <input class="form-control" placeholder="Altura" id="altura" name="altura" type="text" autofocus="">
-							</div>
-							<div class="form-group">
-							  <label for="peso">Peso:</label>
-							  <input class="form-control" placeholder="Peso" id="peso" name="peso" type="text">
-							</div>
-							<div class="form-group">
-							  <label for="sexo">Sexo:</label>
-							  <input class="form-control" placeholder="Homem ou Mulher" id="sexo" name="sexo" type="text">
-							</div>
-							<button class="btn btn-sm btn-success">Calcular</button>
-						</fieldset>
-					</form>
-				</div>
-			</div>
-
-<%!
-public String estado(float altura, float peso, String sexo)
-{
-	String situacao = "";
-	float imc = peso / (altura * altura);
-	if(imc < 19.1 && sexo == "mulher")
-   {
-     situacao = "Abaixo do peso";
-   }
-   else if(imc < 20.7 && sexo == "homem")
-   {
-     situacao = "Abaixo do peso";
-   }
-   else if(imc >=19.1 && imc <= 25.8 && sexo == "mulher")
-   {
-     situacao = "No peso normal";
-   }
-   else if(imc >=20.7 && imc <= 26.4 && sexo == "homem")
-   {
-     situacao = "No peso normal";
-   }
-   else if(imc >=25.8 && imc <= 27.3 && sexo == "mulher")
-   {
-     situacao = "Marginalmente acima do peso";
-   }
-   else if(imc >=26.4 && imc <= 27.8 && sexo == "homem")
-   {
-     situacao = "Marginalmente acima do peso";
-   }
-   else if(imc >=27.3 && imc <= 32.3 && sexo == "mulher")
-   {
-     situacao = "Acima do peso ideal";
-   }
-   else if(imc >=27.8 && imc <= 31.1 && sexo == "homem")
-   {
-     situacao = "Acima do peso ideal";
-   }
-   else if(imc > 32.3 && sexo == "mulher")
-   {
-     situacao = "Obeso";
-   }
-   else if(imc > 31.1 && sexo == "homem")
-   {
-     situacao = "Obeso";
-   }
-   return situacao;
-}
-%>
-
-<%
-String pesoString = request.getParameter("peso");
-pesoString = pesoString == null ? "0" : pesoString;
-float peso = Float.parseFloat(pesoString); 
-
-String alturaString = request.getParameter("altura");
-alturaString = alturaString == null ? "0" : alturaString;
-float altura = Float.parseFloat(alturaString);
-
-String sexo = request.getParameter("sexo");
-sexo = sexo == null ? "0" : sexo;
-
-String message = estado(altura, peso, "homem");
-%>
-
-<div class="alert alert-info" role="alert" style="margin-top:45px"><%=message%></div>
-
-		</div>
-	</div>
+ <div class="container-fluid">
+  <h1>Poupe-Dinheiro</h1>
+  <div class="row">
+    <div class="col-sm-4">.col-sm-4</div>
+    <div class="col-sm-4">.col-sm-4</div>
+    <div class="col-sm-4" style="background-color:#39bcdf;">Loging
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Lembrar Senha
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Logar</button>
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Esqueceu a senha?
+            </a>
+        </div><!-- /card-container -->
+    </div>
+  </div>
+</div>
 </body>
 
 </html>
