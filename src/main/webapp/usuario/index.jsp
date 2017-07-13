@@ -16,11 +16,11 @@
 <div class="form">
           <div class="top-row">
             <div class="field-wrap">
-                <a href="cliente" class=" button-block"/> Cliente </a>
+                <a href="cliente" class=" button-block"/> Mercado </a>
             </div>
 			
             <div class="field-wrap">
-              <a href="mercado" class=" button-block"/> Mercado </a>
+              <a href="mercado" class=" button-block"/> Cliente </a>
             </div>
           </div>
           </form>
